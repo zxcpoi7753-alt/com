@@ -1,0 +1,40 @@
+:root { --brand: #059669; --brand-dark: #064e3b; --accent: #fbbf24; }
+body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; margin: 0; padding: 0; overflow-x: hidden; }
+
+/* إصلاح حجم الشاشة */
+#app-container {
+    transform-origin: top center;
+    transform: scale(var(--layout-scale, 1));
+    width: calc(100% / var(--layout-scale, 1));
+    min-height: 100vh;
+    transition: transform 0.2s ease;
+}
+
+/* الكروت والعناصر */
+.news-card { border-top: 6px solid var(--brand); border-radius: 1.5rem; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 1rem; position: relative; }
+.islamic-pattern { opacity: 0.03; background-image: radial-gradient(var(--brand) 0.5px, transparent 0.5px); background-size: 20px 20px; position: absolute; inset: 0; }
+
+/* الجداول */
+.schedule-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; }
+.schedule-table th { background-color: var(--brand); color: white; padding: 10px; }
+.schedule-table td { padding: 8px; text-align: center; border-bottom: 1px solid #eee; font-weight: bold; }
+.halqa-accordion { background: white; border: 1px solid #e2e8f0; padding: 1rem; border-radius: 1rem; display: flex; justify-content: space-between; items-center; font-weight: 900; color: var(--brand-dark); cursor: pointer; margin-bottom: 0.5rem; }
+.halqa-accordion.active { background: var(--brand); color: white; }
+
+/* لوحة التحكم */
+.admin-section { border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1rem; background: #fff; margin-bottom: 1rem; }
+.admin-section h3 { font-weight: 900; color: var(--brand-dark); margin-bottom: 1rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+.admin-btn-save { position: fixed; bottom: 20px; left: 20px; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); animation: pulse 2s infinite; }
+
+/* التنبيهات */
+.offline-banner { background: #ef4444; color: white; text-align: center; padding: 5px; font-size: 12px; font-weight: bold; position: sticky; top: 0; z-index: 100; }
+.update-btn { position: fixed; bottom: 80px; left: 20px; background: var(--brand-dark); color: white; padding: 8px 16px; border-radius: 50px; font-size: 12px; z-index: 900; cursor: pointer; }
+.toast-container { position: fixed; bottom: 50%; left: 50%; transform: translate(-50%, 50%); z-index: 2000; }
+.toast { background: rgba(0,0,0,0.9); color: white; padding: 15px 30px; border-radius: 50px; font-weight: bold; }
+
+/* إخفاء العناصر */
+.opacity-50 { opacity: 0.5; border: 2px dashed #ccc; }
+
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.animate-in { animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
